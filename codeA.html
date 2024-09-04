@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Event Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            background-image: url(./cubes.png);
+            background-color: #F8F6E3;
+        }
+        footer {
+            background-color: #BC7FCD;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            top: 150px;
+        }
+
+        .social-icons {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 28px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #BC7FCD;
+        }
+
+        footer p {
+            margin-bottom: 0;
+        }
+
+        .footer-list {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+            margin: 0; /* Remove default margin */
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #BC7FCD; /* Example background color */
+            color: #fff; /* Example text color */
+            background-image: url(cubes.png);
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-nav li {
+            display: inline-block;
+            margin-right: 20px; /* Adjust spacing between list items */
+            margin-left: 20px;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-item {
+    padding-left: 90px; /* Left padding of 150px */
+    padding-right: 90px; /* Right padding of 150px */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    margin-left: auto; /* Center the image horizontally */
+    margin-right: auto; /* Center the image horizontally */
+    margin-top: 20px; /* Add a top margin of 20px */
+    margin-bottom: 20px; /* Add a bottom margin of 20px */
+}
+
+        #wideCarousel {
+             margin-top: 40px; /* Adjust the value as needed */
+        }
+
+        .card {
+    transition: transform 0.3s ease; /* Add a transition for smooth effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect on hover */
+}
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #BC7FCD; height: 75px;background-image: url(cubes.png);">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="code.html" style="font-family: fantasy;">Eventia</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="outline: none;"> Clubs </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item nav-link" href="ccdA.html">Communicando</a></li>
+                            <li><a class="dropdown-item nav-link" href="nssA.html">National Service Scheme</a></li>
+                            <li><a class="dropdown-item nav-link" href="coscA.html">CBIT Open-Source Community</a></li>
+                            <li><a class="dropdown-item nav-link" href="tcA.html">Toastmasters CBIT</a></li>
+                            <li><a class="dropdown-item nav-link" href="ccA.html">Chaaya CBIT</a></li>
+                        </ul>
+                    </li>
+                    
+                    <form class="d-flex" role="search" id="searchForm">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" style="width: 500px;"> <!-- Adjust the width as needed -->
+                        <button class="btn btn-outline-light" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </button>
+                    </form>
+                    
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="noti.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                            </svg>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="userprofile.html">Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="loginA.html">Logout</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+    
+            </div>
+        </div>
+    </nav>
+
+    <!-- Wide and Large Carousel -->
+    <div id="wideCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./Screenshot 2024-05-15 at 11.47.17 AM.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="./Screenshot 2024-05-15 at 11.47.32 AM.png" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="./Screenshot 2024-05-15 at 11.47.55 AM.png" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#wideCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#wideCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 text-center">
+                <h2>Featured Events</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <!-- Featured Events Cards -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://www.cbit.ac.in/wp-content/uploads/2023/01/sudhee_2023_SB73-A3-Size-Recovered-1-scaled.jpg" class="card-img-top" alt="Event 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Event Title 1</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et lorem fringilla, ut dictum lorem tincidunt.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://www.cbit.ac.in/wp-content/uploads/2023/01/EEE-min-scaled.jpg" class="card-img-top" alt="Event 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Event Title 2</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et lorem fringilla, ut dictum lorem tincidunt.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://www.cbit.ac.in/wp-content/uploads/2023/01/Sudhee_final_posterCivilizations-min-1.jpg" class="card-img-top" alt="Event 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Event Title 3</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et lorem fringilla, ut dictum lorem tincidunt.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 text-center">
+                    <h2>Upcoming Events</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-3">
+                <!-- Upcoming Events Cards -->
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="./Screenshot 2024-05-15 at 11.41.04 AM.png" class="card-img-top" alt="Upcoming Event 1" height="400px">
+                        <div class="card-body">
+                            <h5 class="card-title">Upcoming Event 1</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et lorem fringilla, ut dictum lorem tincidunt.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="./Screenshot 2024-05-15 at 11.40.51 AM.png" class="card-img-top" alt="Upcoming Event 2" height="400px">
+                        <div class="card-body">
+                            <h5 class="card-title">Upcoming Event 2</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et lorem fringilla, ut dictum lorem tincidunt.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="./Screenshot 2024-05-15 at 11.40.36 AM.png" class="card-img-top" alt="Upcoming Event 3" height="400px">
+                        <div class="card-body">
+                            <h5 class="card-title">Upcoming Event 3</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero et lorem fringilla, ut dictum lorem tincidunt.</p>
+                            <a href="#" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 text-center">
+                <h2>Event Categories</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <!-- Event Category Cards -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://www.learnaboutlogistics.com/wp-content/uploads/2016/07/photodune-6221194-customer-service-team-s-e1468394369939-742x353.jpg" class="card-img-top" alt="Service Category">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Events</h5>
+                        <a href="#" class="btn btn-primary">Explore Events</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="./techbot.jpeg" class="card-img-top" alt="Technical Category" height="230px">
+                    <div class="card-body">
+                        <h5 class="card-title">Technical Events</h5>
+                        <a href="#" class="btn btn-primary">Explore Events</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="https://www.marketing91.com/wp-content/uploads/2020/11/Non-technical-skills.jpg" class="card-img-top" alt="Non-Technical Category" height="230px">
+                    <div class="card-body">
+                        <h5 class="card-title">Non-Technical Events</h5>
+                        <a href="#" class="btn btn-primary">Explore Events</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-left">
+            <!-- Brand name with logo -->
+            <div class="brand" style="font-size: 1.25rem;font-family: fantasy;">Eventia </div>
+            <!-- Footer navigation -->
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="about.html" style="color: aliceblue;">About Us</a></li>
+                    <li><a href="contact.html" style="color: aliceblue;">Contact Us</a></li>
+                    <li><a href="#" style="color: aliceblue;">Terms and Conditions</a></li>
+                    <li><a href="#" style="color: aliceblue;">Privacy Policy</a></li>
+                    <li><a href="#" style="color: aliceblue;">Cookie Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-right">
+            <!-- Social icons -->
+            <p>&copy; 2024 Eventia, Inc.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <!-- Copyright -->
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the value from the search input
+    const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+
+    // Check if the search term matches any event title
+    const eventTitles = document.querySelectorAll('.card-title');
+    let found = false;
+    eventTitles.forEach(title => {
+        if (title.textContent.toLowerCase().includes(searchTerm)) {
+            found = true;
+            // Redirect to the page where the event is located
+            window.location.href = title.closest('.card').querySelector('a').href;
+        }
+    });
+
+    // If no event is found, display an alert
+    if (!found) {
+        alert('Event not found!');
+    }
+});
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+   
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSC Club Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Custom CSS for cosc Club Events page */
+        .navbar {
+            background-color: #dc3f64;
+            color: white;
+            background-image: url(cubes.png);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        /* Add lilac box shadow to events on hover */
+        .card:hover {
+            box-shadow: 5px 5px 15px rgba(182, 102, 255, 0.5); /* Lilac color */
+            transition: box-shadow 0.3s ease;
+        }
+        .registration-form {
+            display: none;
+        }
+        .btn-purple {
+            background-color: #001380;
+            border-color: #460080;
+        }
+        .navbar-brand.brand-title {
+            font-family: fantasy;
+            margin: 10px 20px 5px 15px; /* Adjust the margin values as needed */
+        }
+        .nav-item-container {
+            display: flex;
+            align-items: center;
+        }
+        .nav-icon {
+            margin-right: 4px; /* Adjust the margin value between icon and text */
+        }
+        .events-item {
+            margin-right: 15px; /* Adjust this value to increase/decrease the space */
+        }
+        .custom-img {
+            height:auto;
+            width: auto;
+        }
+        .no-gutter > .row {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .no-gutter > [class*="col-"] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .btn-xl-200px {
+            width: 200px;
+            font-size: 1.25rem;
+            margin: 10px; /* Add margin around the button */
+        }
+
+        .chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    .modal-header {
+      background-color: #BC7FCD; /* Purple background color */
+      color: white; /* White text color */
+    }
+    .send-btn {
+      background-color: #BC7FCD; /* Purple background color */
+      border-color: #BC7FCD; /* Purple border color */
+    }
+    .send-btn:hover {
+      background-color: #954FAD; /* Darker purple background color on hover */
+      border-color: #954FAD; /* Darker purple border color on hover */
+    }
+    </style>
+</head>
+<body style="background-image: url(cubes.png);background-color: #F8F6E3;">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand brand-title" href="code.html">Eventia</a>
+          <a class="navbar-brand brand-title" href="coscA.html">CBIT Open-Source Community</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item events-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar nav-icon" viewBox="0 0 16 16">
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                    </svg>
+                    Events
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Hactoberfest</a></li>
+                    <li><a class="dropdown-item" href="#">Git Cryptex</a></li>
+                    <li><a class="dropdown-item" href="#">Odyssey</a></li>
+                </ul>
+            </li>
+              <li class="nav-item chat-item">
+                <div class="nav-item-container">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots nav-icon" viewBox="0 0 16 16">
+                    <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                    <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9 9 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.4 10.4 0 0 1-.524 2.318l-.003.011a11 11 0 0 1-.244.637c-.079.186.074.394.273.362a22 22 0 0 0 .693-.125m.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6-3.004 6-7 6a8 8 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a11 11 0 0 0 .398-2"/>
+                  </svg>
+                  <a class="nav-link active" aria-current="page" href="chat.html">Chat</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn btn-dark btn-xl-200px" id="createEventBtn">+ Create Event</button>
+    </nav>
+    <div class="container mt-3" id="eventContainer">
+        <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-6">
+                    <img src="./hactoberfest-banner.png" class="img-fluid rounded-start card-img-top custom-img" alt="Event Image" >
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card-body" style="line-height: 15px;">
+                      <h5 class="card-title">Hactoberfest</h5>
+                      <p class="card-text">Date: January 1, 2025</p>
+                      <p class="card-text">Venue: Main Auditorium</p>
+                      <p class="card-text">Theme: Technical</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p class="card-text">This is a brief description of the event. Lorem ipsum dolor sit ametNullam suscipit convallis urna, nec tincidunt risus consequat nec.</p>
+                  <button class="btn btn-primary btn-sm register-btn" type="button">Register Now</button>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-6">
+                    <img src="./tech-fest-logo.jpeg" class="img-fluid rounded-start card-img-top custom-img" alt="Event Image">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body" style="line-height: 15px;">
+                    <h5 class="card-title">Git Cryptex</h5>
+                    <p class="card-text">Date: January 1, 2025</p>
+                    <p class="card-text">Venue: Main Auditorium</p>
+                    <p class="card-text">Theme: Technical</p>
+                  </div>
+                </div>
+            </div>
+              <div class="card-body">
+                <p class="card-text">This is a brief description of the event. Lorem ipsum dolor sit ametNullam suscipit convallis urna, nec tincidunt .</p>
+      
+                <button class="btn btn-primary btn-sm register-btn" type="button">Register Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card mb-3" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-6">
+                    <img src="./maxresedefault.jpeg" class="img-fluid rounded-start card-img-top custom-img" alt="Event Image" style="height: 130px;">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body" style="line-height: 15px;">
+                    <h5 class="card-title">Odyssey</h5>
+                    <p class="card-text">Date: January 1, 2025</p>
+                    <p class="card-text">Venue: Main Auditorium</p>
+                    <p class="card-text">Theme: Technical</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-text">This is a brief description of the event. Lorem ipsum dolor sit ametNullam suscipit convallis urna, nec tincidunt .</p>
+      
+                <button class="btn btn-primary btn-sm register-btn" type="button">Register Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary chat-btn" data-bs-toggle="modal" data-bs-target="#chatModal">Chat</button>
+      <div class="modal fade" id="chatModal" tabindex="-1" role="dialog" aria-labelledby="chatModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="chatModalLabel">How can I help you?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <textarea id="chatInput" class="form-control" placeholder="Type your message here..." name="message"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary send-btn">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
+
+    <!-- Registration Form -->
+    <div class="container registration-form mt-5">
+        <h2>Registration Form</h2>
+        <form action="/coscA_register" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="class" class="form-label">Class</label>
+                <input type="text" class="form-control" id="class" name="class1" required>
+            </div>
+            <div class="mb-3">
+              <label for="class" class="form-label">Branch</label>
+              <input type="text" class="form-control" id="class" name="branch" required>
+          </div>
+            <div class="mb-3">
+                <label for="roll-no" class="form-label">Roll No</label>
+                <input type="text" class="form-control" id="roll-no" name="rollno" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="eventname" class="form-label">Event</label>
+              <input type="text" class="form-control" id="eventname" name="eventname" required>
+          </div>
+            <div class="mb-3">
+                <label for="participants" class="form-label">Number of Participants</label>
+                <input type="number" class="form-control" id="participants" name="no_of_participants" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-secondary" id="cancelButton">Cancel</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        // JavaScript to toggle registration form visibility
+        const registerButtons = document.querySelectorAll('.register-btn');
+        const registrationForm = document.querySelector('.registration-form');
+        const cancelButton = document.getElementById('cancelButton');
+
+        // Show registration form when register button is clicked
+        registerButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                registrationForm.style.display = 'block';
+            });
+        });
+
+        // Hide registration form when cancel button is clicked
+        cancelButton.addEventListener('click', () => {
+            registrationForm.style.display = 'none';
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const createEventBtn = document.getElementById('createEventBtn');
+            const eventContainer = document.getElementById('eventContainer');
+
+            // Retrieve saved events from localStorage
+            const savedEvents = JSON.parse(localStorage.getItem('events')) || [];
+            savedEvents.forEach(eventData => {
+                const card = createEventCard(eventData);
+                eventContainer.appendChild(card);
+            });
+
+            createEventBtn.addEventListener('click', function () {
+                const eventData = {
+                    eventName: '',
+                    eventDate: '',
+                    eventVenue: '',
+                    eventTheme: '',
+                    eventDescription: '',
+                    eventImage: ''
+                };
+                const card = createEventCard(eventData);
+                eventContainer.appendChild(card);
+                saveEvents();
+            });
+        });
+
+        function createEventCard(eventData) {
+            const card = document.createElement('div');
+            card.classList.add('col-md-6');
+            card.innerHTML = `
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-6 text-center my-3">
+                            <input type="file" class="form-control" id="eventImage" accept="image/*">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-body" style="line-height: 30px;">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="eventName" class="form-label">Event Name</label>
+                                        <input type="text" class="form-control" id="eventName" value="${eventData.eventName}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="eventDate" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="eventDate" value="${eventData.eventDate}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="eventVenue" class="form-label">Venue</label>
+                                        <input type="text" class="form-control" id="eventVenue" value="${eventData.eventVenue}" required>
+                                    </div>
+                                    <div class="mb -3">
+                                        <label for="eventTheme" class="form-label">Theme</label>
+                                        <input type="text" class="form-control" id="eventTheme" value="${eventData.eventTheme}" required>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <textarea class="card-text form-control" rows="5" placeholder="Enter the description of the event above.">${eventData.eventDescription}</textarea>
+                        <button class="btn btn-primary btn-sm register-btn mt-3" type="button">Register Now</button>
+                    </div>
+                </div>
+            `;
+
+            // Add image preview functionality
+            const eventImageInput = card.querySelector('#eventImage');
+            const eventImagePreview = card.querySelector('.custom-img');
+
+            eventImageInput.addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+
+                reader.onloadend = function () {
+                    eventImagePreview.src = reader.result;
+                    eventData.eventImage = reader.result;
+                    saveEvents();
+                }
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    eventImagePreview.src = "";
+                    eventData.eventImage = "";
+                    saveEvents();
+                }
+            });
+
+            // Register Now button functionality
+            const registerBtn = card.querySelector('.register-btn');
+            registerBtn.addEventListener('click', function () {
+                const eventName = card.querySelector('#eventName').value;
+                const eventDate = card.querySelector('#eventDate').value;
+                const eventVenue = card.querySelector('#eventVenue').value;
+                const eventTheme = card.querySelector('#eventTheme').value;
+                const eventDescription = card.querySelector('.card-text').value;
+
+                eventData.eventName = eventName;
+                eventData.eventDate = eventDate;
+                eventData.eventVenue = eventVenue;
+                eventData.eventTheme = eventTheme;
+                eventData.eventDescription = eventDescription;
+
+                saveEvents();
+
+                // Perform registration logic here
+                console.log('Event Name:', eventName);
+                console.log('Event Date:', eventDate);
+                console.log('Event Venue:', eventVenue);
+                console.log('Event Theme:', eventTheme);
+                console.log('Event Description:', eventDescription);
+
+                // You can add your registration logic here, such as sending data to a server or updating the UI
+            });
+
+            return card;
+        }
+
+        function saveEvents() {
+            const eventCards = document.querySelectorAll('.col-md-6 .card');
+            const events = [];
+
+            eventCards.forEach(card => {
+                const eventName = card.querySelector('#eventName').value;
+                const eventDate = card.querySelector('#eventDate').value;
+                const eventVenue = card.querySelector('#eventVenue').value;
+                const eventTheme = card.querySelector('#eventTheme').value;
+                const eventDescription = card.querySelector('.card-text').value;
+                const eventImage = card.querySelector('.custom-img').src;
+
+                const eventData = {
+                    eventName,
+                    eventDate,
+                    eventVenue,
+                    eventTheme,
+                    eventDescription,
+                    eventImage
+                };
+
+                events.push(eventData);
+            });
+
+            localStorage.setItem('events', JSON.stringify(events));
+        }
+
+        // Get references to the necessary elements
+  const chatModal = document.getElementById('chatModal');
+  const chatInput = document.getElementById('chatInput');
+  const sendButton = document.querySelector('.send-btn');
+  const closeButton = document.querySelector('.close');
+
+  // Function to send a message and redirect
+function sendMessage() {
+  const message = chatInput.value.trim();
+
+  if (message === '') {
+    // Show validation error if the message is empty
+    alert('Please enter a message before sending.');
+    return; // Exit the function
+  }
+
+  // You can add logic here to handle sending the message to a server or processing it
+  // For now, let's just log it to the console
+  console.log('Message sent:', message);
+
+  // Clear the input field
+  chatInput.value = '';
+
+  // Redirect to ccd.html
+  window.location.href = 'coscA.html';
+}
+
+// Event listener for the send button
+sendButton.addEventListener('click', sendMessage);
+
+// Event listener for the Enter key
+chatInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+});
+
+// Event listener for the close button
+closeButton.addEventListener('click', () => {
+  // Redirect to ccd.html
+  window.location.href = 'coscA.html';
+});
+    </script>
+</body>
+</html>

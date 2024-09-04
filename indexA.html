@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+    background: linear-gradient(135deg, #e9d7ff); /* Shiny lilac gradient */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f093fb, #f5576c, #5ee7df); /* Colorful gradient background */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    margin-top: 12px;
+    margin-bottom: 10px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 45px;
+    background-color: #f5576c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #f5576c;
+}
+
+.error {
+    color: red;
+    padding-left: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        margin: 10px auto; /* Center the container horizontally */
+    }
+}
+    
+.eventia-heading {
+  position: fixed;
+  top: 10px; /* Adjust the value as needed */
+  left: 10px; /* Adjust the value as needed */
+  transform: none; /* Remove the horizontal centering */
+  z-index: 999; /* Ensure it appears above other elements */
+}
+
+h1 {
+  font-family: fantasy;
+}
+
+.eventia-heading a {
+  text-decoration: none;
+  color: #916DB3;
+}
+
+.eventia-heading a:hover {
+  color: #916DB3;
+}
+    </style>
+</head>
+<body>
+    <div class="eventia-heading">
+        <a href="main.html"><h1>Eventia</h1></a>
+      </div>
+    <div class="container">
+
+        <form action="/sign_upA" method="POST" onsubmit="return validateForm()">
+            <h2> Admin Sign Up</h2>
+            <label>UserName</label>
+            <input type="text" id="name" name="name" placeholder="Username" required>
+            <label>Mobile Number</label>
+            <input type="tel" id="mobileno" name="mobileno" placeholder="Mobile number" required>
+            <span id="mobileError" class="error"></span>
+            <label>Email Id</label>
+            <input type="email" id="email" name="email" placeholder="Email id" required>
+            <span id="emailError" class="error"></span>
+            <label>Club Code</label>
+            <input type="text" id="clubcode" name="clubcode" placeholder="ClubCode" required>
+            <label>Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <label>Confirm Password</label>
+            <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Password" required>
+            <span id="passwordError" class="error"></span>
+            <input type="submit" value="Sign Up" id="submit" name="submit">
+            <br>
+            <div class="text-center mb-3">
+                <a class="text-decoration-none" href="terms_of_use.html" style="color: black;">By signing up, you agree to <a href="terms_of_use.html">Terms of Use</a> and <a href="privacy_policy.html">Privacy Policy</a></a>
+            </div>
+                        
+            <hr/>
+        </form>
+        <div class="text-center mt-3">
+            <p>Already have an account? <a href="./loginA.html" class="text-decoration-none">Log in</a></p>
+        </div>
+    </div>
+    
+    <script>
+        function validateForm() {
+            var isValid = true;
+            var mobileNo = document.getElementById('mobileno').value;
+            var mobileError = document.getElementById('mobileError');
+            var phoneRegex = /^\d{10}$/; 
+            if (!phoneRegex.test(mobileNo)) {
+                mobileError.textContent = 'Mobile number must be 10 digits phone number.';
+                isValid = false;
+            } else {
+                mobileError.textContent = '';
+            }
+
+            var email = document.getElementById('email').value;
+            var emailError = document.getElementById('emailError');
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmpassword').value;
+            var passwordError = document.getElementById('passwordError');
+            if (password !== confirmPassword) {
+                passwordError.textContent = 'Passwords do not match.';
+                isValid = false;
+            } else {
+                passwordError.textContent = '';
+            }
+            
+            return isValid;
+        }
+    </script>
+</body>
+</html>
